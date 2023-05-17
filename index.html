@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Script.js">
+    <!-- <script src="Script.js"></script> -->
+    <title>Image Slider </title>
+</head>
+
+    <div class="container">
+        <div class="image">
+             <img src="./Images/Sea-PNG-HD.png" alt="">
+        </div>
+        <div class="image">
+            <img src="./Images/zX0nedR.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="./Images/Sea-PNG-HD.png" alt="">
+        </div>
+        <div class="image">
+            <img src="./Images/zX0nedR.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="./Images/Sea-PNG-HD.png" alt="">
+        </div>
+
+        <div class="button">
+            <a onclick="nextimg(-1)" class="prev">&#10094;</a>
+            <a onclick="nextimg(1)" class="next">&#10095;</a>
+        </div>
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+    <script>
+        var imageno = 1;
+var autoplayInterval;
+
+displayimg(imageno);
+startAutoplay();
+
+function nextimg(n) {
+  displayimg(imageno += n);
+}
+
+function currentSlide(n) {
+  displayimg(imageno = n);
+}
+
+function displayimg(n) {
+  var i;
+  var image = document.getElementsByClassName("image");
+  var dots = document.getElementsByClassName("dot");
+
+  if (n > image.length) {
+    imageno = 1;
+  }
+
+  if (n < 1) {
+    imageno = image.length;
+  }
+
+  for (i = 0; i < image.length; i++) {
+    image[i].style.display = "none";
+  }
+
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  image[imageno - 1].style.display = "block";
+  dots[imageno - 1].className += " active";
+
+//     image[imageno - 1].style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('" + image[imageno - 1].getElementsByTagName("img")[0].src + "')";
+//   image[imageno - 1].style.backgroundRepeat = "no-repeat";
+//   image[imageno - 1].style.backgroundSize = "cover";
+}
+
+
+
+function startAutoplay() {
+  autoplayInterval = setInterval(function() {
+    nextimg(1);
+  }, 1000); // Change the interval time in milliseconds here (e.g., 2000 for 2 seconds)
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+}
+    </script>
+
+    
+   
+
+    
+</body>
+</html>
