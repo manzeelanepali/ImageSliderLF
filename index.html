@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Script.js">
-    <!-- <script src="Script.js"></script> -->
     <title>Image Slider </title>
 </head>
 
@@ -42,7 +41,7 @@
     </div>
     <script>
         var imageno = 1;
-var autoplayInterval;
+        var autoplayInterval;
 
 displayimg(imageno);
 startAutoplay();
@@ -79,12 +78,8 @@ function displayimg(n) {
   image[imageno - 1].style.display = "block";
   dots[imageno - 1].className += " active";
 
-//     image[imageno - 1].style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('" + image[imageno - 1].getElementsByTagName("img")[0].src + "')";
-//   image[imageno - 1].style.backgroundRepeat = "no-repeat";
-//   image[imageno - 1].style.backgroundSize = "cover";
+
 }
-
-
 
 function startAutoplay() {
   autoplayInterval = setInterval(function() {
@@ -97,9 +92,11 @@ function stopAutoplay() {
 }
     </script>
 
+</body>
+</html>
+
+
     
    
 
     
-</body>
-</html>
